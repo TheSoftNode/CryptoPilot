@@ -7,7 +7,7 @@ export const initialWalletState: WalletState = {
     connecting: false,
     address: null,
     balance: null,
-    network: null,
+    network: null as unknown as Network,
     error: null,
 };
 
@@ -17,7 +17,7 @@ export const isMetaMaskInstalled = (): boolean => {
 };
 
 // Get network from chain ID
-export const getNetworkFromChainId = (chainId: string): Network => {
+export const getNetworkFromChainId = (chainId: string): Network | null => {
     switch (chainId) {
         case CHAIN_IDS.ETHEREUM:
             return "ethereum";
